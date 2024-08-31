@@ -1,0 +1,1657 @@
+{
+  "author": "Unnamed",
+  "title": "drawdb-diagram",
+  "date": "2024-08-31T16:31:20.687Z",
+  "tables": [
+    {
+      "name": "admins",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": true,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "username",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": true,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 5
+        }
+      ],
+      "indices": [],
+      "id": 0,
+      "x": -122.24840625000007,
+      "y": -387.85820000000007
+    },
+    {
+      "name": "taxons",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "parent_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "taxon_name",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "slug",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 5
+        }
+      ],
+      "indices": [],
+      "id": 1,
+      "x": 502.481,
+      "y": 792.3983687499999
+    },
+    {
+      "name": "products",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "pricing",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "product_name",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "product_description",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "product_type",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "SIMPLE",
+          "check": "",
+          "id": 4
+        },
+        {
+          "name": "taxon_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 5
+        },
+        {
+          "name": "product_status",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "ACTIVE",
+          "check": "",
+          "id": 6
+        },
+        {
+          "name": "product_image_url",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 7
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 8
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 9
+        }
+      ],
+      "indices": [],
+      "id": 2,
+      "x": -122.31523173662316,
+      "y": -2.334678397935477
+    },
+    {
+      "name": "product_taxons",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "taxon_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 3,
+      "x": 802.6294312500002,
+      "y": 787.53634375
+    },
+    {
+      "name": "product_options",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "code",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": true,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "option_name",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "position",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": true,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 4,
+      "x": 209.42157499999996,
+      "y": -7.404743750000023
+    },
+    {
+      "name": "product_option_values",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "option_code",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 5,
+      "x": 309.05228124999985,
+      "y": 308.6268812500001
+    },
+    {
+      "name": "product_variants",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "pricing",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "variant_name",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "position",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 4
+        },
+        {
+          "name": "product_status",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "ACTIVE",
+          "check": "",
+          "id": 5
+        },
+        {
+          "name": "product_variant_image_url",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 6
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 7
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 8
+        }
+      ],
+      "indices": [],
+      "id": 6,
+      "x": 877.8683999999998,
+      "y": 311.05789375000006
+    },
+    {
+      "name": "product_configurable_options",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "product_option_code",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 2
+        }
+      ],
+      "indices": [],
+      "id": 7,
+      "x": 600.6921687500001,
+      "y": 313.4889062499999
+    },
+    {
+      "name": "product_variant_options",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_variant_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "product_option_value_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 8,
+      "x": 1140.3361374999995,
+      "y": 302.54935
+    },
+    {
+      "name": "customers",
+      "comment": "",
+      "color": "#f03c3c",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": true,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "size": 255,
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 9,
+      "x": 1880.5794437499992,
+      "y": 390.0354500000002
+    },
+    {
+      "name": "customer_cart_simple_items",
+      "comment": "",
+      "color": "#f03c3c",
+      "fields": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "added_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 3
+        }
+      ],
+      "indices": [],
+      "id": 10,
+      "x": 1558.5110937499999,
+      "y": 647.722775
+    },
+    {
+      "name": "customer_cart_configurable_items",
+      "comment": "",
+      "color": "#f03c3c",
+      "fields": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_variant_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "added_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 3
+        }
+      ],
+      "indices": [],
+      "id": 11,
+      "x": 2197.9081875,
+      "y": 648.9382812499999
+    },
+    {
+      "name": "orders",
+      "comment": "",
+      "color": "#89e667",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "shipping_fee",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "total_price",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "order_status",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "PENDING_PAYMENT",
+          "check": "",
+          "id": 4
+        },
+        {
+          "name": "delivery_address",
+          "type": "JSONB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 5
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 6
+        }
+      ],
+      "indices": [],
+      "id": 12,
+      "x": 1608.4284625,
+      "y": -143.57179374999993
+    },
+    {
+      "name": "order_line_simple_items",
+      "comment": "",
+      "color": "#89e667",
+      "fields": [
+        {
+          "name": "order_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "unit_price",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "order_line_item_status",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "PROCESSING",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 13,
+      "x": 2159.0936000000006,
+      "y": -147.21831249999997
+    },
+    {
+      "name": "order_line_configurable_items",
+      "comment": "",
+      "color": "#89e667",
+      "fields": [
+        {
+          "name": "order_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_variant_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "unit_price",
+          "type": "NUMERIC",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "size": "10,2",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "order_line_item_status",
+          "type": "BLOB",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "PROCESSING",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 14,
+      "x": 1926.9727125,
+      "y": -144.7873000000003
+    },
+    {
+      "name": "product_reviews",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "order_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "comment",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 2
+        },
+        {
+          "name": "rating",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "0",
+          "check": "",
+          "id": 3
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 4
+        }
+      ],
+      "indices": [],
+      "id": 15,
+      "x": 1062.788575,
+      "y": 787.5059937499999
+    },
+    {
+      "name": "product_association_types",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "type_name",
+          "type": "TEXT",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "NOW()",
+          "check": "",
+          "id": 2
+        }
+      ],
+      "indices": [],
+      "id": 16,
+      "x": 198.60443750000002,
+      "y": 885.9620000000001
+    },
+    {
+      "name": "product_associations",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "name": "product_association_type_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 0
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": true,
+          "primary": false,
+          "default": "",
+          "check": "",
+          "id": 1
+        }
+      ],
+      "indices": [],
+      "id": 17,
+      "x": -145.34302500000007,
+      "y": 889.6085187500001
+    }
+  ],
+  "relationships": [
+    {
+      "name": "products_taxon_id_fk",
+      "startTableId": 2,
+      "startFieldId": 5,
+      "endTableId": 1,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 0
+    },
+    {
+      "name": "product_taxons_product_id_fk",
+      "startTableId": 3,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 1
+    },
+    {
+      "name": "product_taxons_taxon_id_fk",
+      "startTableId": 3,
+      "startFieldId": 2,
+      "endTableId": 1,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 2
+    },
+    {
+      "name": "product_option_values_option_code_fk",
+      "startTableId": 5,
+      "startFieldId": 1,
+      "endTableId": 4,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 3
+    },
+    {
+      "name": "product_variants_product_id_fk",
+      "startTableId": 6,
+      "startFieldId": 3,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 4
+    },
+    {
+      "name": "product_configurable_options_product_id_fk",
+      "startTableId": 7,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 5
+    },
+    {
+      "name": "product_configurable_options_product_option_code_fk",
+      "startTableId": 7,
+      "startFieldId": 2,
+      "endTableId": 4,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 6
+    },
+    {
+      "name": "product_variant_options_product_variant_id_fk",
+      "startTableId": 8,
+      "startFieldId": 1,
+      "endTableId": 6,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 7
+    },
+    {
+      "name": "product_variant_options_product_option_value_id_fk",
+      "startTableId": 8,
+      "startFieldId": 2,
+      "endTableId": 5,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 8
+    },
+    {
+      "name": "customer_cart_simple_items_customer_id_fk",
+      "startTableId": 10,
+      "startFieldId": 0,
+      "endTableId": 9,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 9
+    },
+    {
+      "name": "customer_cart_simple_items_product_id_fk",
+      "startTableId": 10,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 10
+    },
+    {
+      "name": "customer_cart_configurable_items_customer_id_fk",
+      "startTableId": 11,
+      "startFieldId": 0,
+      "endTableId": 9,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 11
+    },
+    {
+      "name": "customer_cart_configurable_items_product_variant_id_fk",
+      "startTableId": 11,
+      "startFieldId": 1,
+      "endTableId": 6,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 12
+    },
+    {
+      "name": "orders_customer_id_fk",
+      "startTableId": 12,
+      "startFieldId": 1,
+      "endTableId": 9,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 13
+    },
+    {
+      "name": "order_line_simple_items_order_id_fk",
+      "startTableId": 13,
+      "startFieldId": 0,
+      "endTableId": 12,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 14
+    },
+    {
+      "name": "order_line_simple_items_product_id_fk",
+      "startTableId": 13,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 15
+    },
+    {
+      "name": "order_line_configurable_items_order_id_fk",
+      "startTableId": 14,
+      "startFieldId": 0,
+      "endTableId": 12,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 16
+    },
+    {
+      "name": "order_line_configurable_items_product_variant_id_fk",
+      "startTableId": 14,
+      "startFieldId": 1,
+      "endTableId": 6,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 17
+    },
+    {
+      "name": "product_reviews_order_id_fk",
+      "startTableId": 15,
+      "startFieldId": 0,
+      "endTableId": 12,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 18
+    },
+    {
+      "name": "product_reviews_product_id_fk",
+      "startTableId": 15,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 19
+    },
+    {
+      "name": "product_associations_product_association_type_id_fk",
+      "startTableId": 17,
+      "startFieldId": 0,
+      "endTableId": 16,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 20
+    },
+    {
+      "name": "product_associations_product_id_fk",
+      "startTableId": 17,
+      "startFieldId": 1,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "cardinality": "Many to one",
+      "id": 21
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [
+    {
+      "id": 0,
+      "name": "Products",
+      "x": -217.49298750000048,
+      "y": -59.166040356445365,
+      "width": 1635.1843937500005,
+      "height": 1198.4891625000002,
+      "color": "#175e7a"
+    },
+    {
+      "id": 1,
+      "name": "Customers",
+      "x": 1459.9056375000002,
+      "y": 309.1280144948005,
+      "width": 1074.8360125000006,
+      "height": 638.1451201487541,
+      "color": "#f03c3c"
+    },
+    {
+      "id": 2,
+      "name": "Orders",
+      "x": 1530.405,
+      "y": -200.16910425519933,
+      "width": 999.4746250000005,
+      "height": 440.0176013987539,
+      "color": "#32c9b0"
+    }
+  ],
+  "database": "postgresql",
+  "types": [],
+  "enums": [
+    {
+      "name": "product_type",
+      "values": [
+        "SIMPLE",
+        "CONFIGURABLE"
+      ]
+    },
+    {
+      "name": "product_status",
+      "values": [
+        "ACTIVE",
+        "ARCHIVED",
+        "OUT_OF_STOCK"
+      ]
+    },
+    {
+      "name": "order_status",
+      "values": [
+        "PENDING_PAYMENT",
+        "PAID",
+        "CANCELLED"
+      ]
+    },
+    {
+      "name": "order_line_item_status",
+      "values": [
+        "PROCESSING",
+        "TO_SHIP",
+        "TO_RECEIVE",
+        "COMPLETED"
+      ]
+    }
+  ]
+}
