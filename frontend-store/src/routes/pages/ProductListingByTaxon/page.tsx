@@ -152,7 +152,7 @@ function ProductListingByTaxonPage() {
             priceFilters={priceFilters}
             numberOfItems={productListingQuery.data.products.length}
           />
-          <div className="h-full w-full">
+          <div className="h-full w-full pb-20">
             {productListingQuery.data ? (
               productListingQuery.data.products.length === 0 ? (
                 <div className="w-full text-center h-full flex items-center justify-center">

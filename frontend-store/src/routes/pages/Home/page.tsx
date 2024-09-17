@@ -34,7 +34,7 @@ export function HomePage() {
 
   return (
     <div>
-      <div className="overflow-hidden md:h-[calc(100vh-6rem)] md:px-6 md:py-6">
+      <div className="overflow-hidden md:min-h-[calc(100vh-6rem)] md:px-6 md:pt-6 md:pb-20">
         <div className="font-logo font-medium text-4xl text-gray-500 px-4 md:px-14 mt-14">
           Shop for <span className="text-teal-600 underline">FASHION</span> that
           elevates your <span className="text-teal-600 underline">PERFECT</span>{" "}
