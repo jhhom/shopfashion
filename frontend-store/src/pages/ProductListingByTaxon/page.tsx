@@ -21,7 +21,7 @@ import {
   PageDoesNotExist,
   UnexpectedError,
 } from "~/pages/common/ErrorContents";
-import { IconClose, IconShirt, IconSliders } from "~/pages/common/Icons";
+import { IconClose, IconOpenBox, IconSliders } from "~/pages/common/Icons";
 import { Rating } from "~/pages/common/Rating";
 import { Breadcrumb } from "~/pages/common/components/Breadcrumb";
 import { parseApiError } from "~/utils/api-error";
@@ -148,20 +148,33 @@ export function ProductListingByTaxonPage() {
             priceFilters={priceFilters}
             numberOfItems={productListingQuery.data.products.length}
           />
-          <div className="mt-8 grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-x-10 md:gap-x-12 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <div className="h-full w-full">
             {productListingQuery.data ? (
-              productListingQuery.data.products.map((pr) => (
-                <ProductListingItem
-                  key={pr.id}
-                  id={pr.id}
-                  imgUrl={pr.imgUrl}
-                  name={pr.name}
-                  price={pr.pricing}
-                  rating={pr.rating}
-                  reviews={pr.numberOfReviews}
-                  taxonSlug={taxonSlug}
-                />
-              ))
+              productListingQuery.data.products.length === 0 ? (
+                <div className="w-full text-center h-full flex items-center justify-center">
+                  <div>
+                    <IconOpenBox className="w-16 h-16 text-gray-300 mx-auto" />
+                    <div className="mt-2">
+                      No product matches the specified filter or categories
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-8 h-full w-full grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-x-10 md:gap-x-12 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                  {productListingQuery.data.products.map((pr) => (
+                    <ProductListingItem
+                      key={pr.id}
+                      id={pr.id}
+                      imgUrl={pr.imgUrl}
+                      name={pr.name}
+                      price={pr.pricing}
+                      rating={pr.rating}
+                      reviews={pr.numberOfReviews}
+                      taxonSlug={taxonSlug}
+                    />
+                  ))}
+                </div>
+              )
             ) : (
               <LoadingSpinner />
             )}
