@@ -1,6 +1,6 @@
 import { MissingProductImage } from "~/pages/common/ErrorContents";
-import { IconShirt } from "~/pages/common/Icons";
 import { formatPrice } from "~/utils/utils";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 
 export type OrderSummary = {
   itemsSubtotal: number;
@@ -54,7 +54,10 @@ export function OrderSummary(props: {
             <li key={i.productId} className="flex">
               <div className="flex h-20 w-20 items-center justify-center rounded-md bg-gray-100">
                 {i.imgUrl ? (
-                  <img src={i.imgUrl} className="h-full w-full object-cover" />
+                  <ImgWithLoader
+                    src={i.imgUrl}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
                   <MissingProductImage />
                 )}

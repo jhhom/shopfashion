@@ -1,9 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useLocalStorageAuth } from "~/external/browser/local-storage/use-auth.hook";
-import { useAppStore } from "~/stores/stores";
-
-import { QUERY_KEY } from "~/pages/Membership/query";
-import { client } from "~/external/api-client/client";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 import { Link, LinkProps, Outlet, useSearch } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { clsx as cx } from "clsx";
@@ -13,10 +8,7 @@ import { IconShirt } from "~/pages/common/Icons";
 
 import { Rating } from "~/pages/common/Rating";
 
-import { parseApiError } from "~/utils/api-error";
-
 import { match } from "ts-pattern";
-import toast from "react-hot-toast";
 import { formatPrice } from "~/utils/utils";
 import { useCreateProductReview, usePurchases } from "~/pages/Membership/api";
 
@@ -111,7 +103,7 @@ function ProductHistoryItem(props: {
                   No image
                 </div>
               ) : (
-                <img
+                <ImgWithLoader
                   className="h-16 w-16 rounded-md object-cover"
                   src={props.productImageUrl}
                 />
@@ -263,7 +255,7 @@ function ReviewProductDialog(props: {
                     {props.productImageUrl === "" ? (
                       <IconShirt className="h-8 w-8 text-gray-500" />
                     ) : (
-                      <img
+                      <ImgWithLoader
                         src={props.productImageUrl}
                         className="h-20 w-20 rounded-md object-cover"
                       />

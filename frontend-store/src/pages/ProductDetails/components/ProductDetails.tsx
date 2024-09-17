@@ -7,6 +7,7 @@ import { Rating } from "~/pages/common/Rating";
 
 import { clsx as cx } from "clsx";
 import { useMap, Actions } from "usehooks-ts";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 import { getDisabledOptions2 } from "~/pages/ProductDetails/components/get-disabled-options/get-disabled-options-3";
 import { ProductStatus } from "~/api-contract/common";
 
@@ -32,7 +33,7 @@ export function ProductDetails(props: {
       <div className="basis-96 px-4 md:px-0">
         <div className="h-[28rem] w-full md:h-96 md:w-96">
           {props.product.productImageUrl ? (
-            <img
+            <ImgWithLoader
               src={props.product.productImageUrl}
               className="h-full w-full rounded-md object-cover"
             />

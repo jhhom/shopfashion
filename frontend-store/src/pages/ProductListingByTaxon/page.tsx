@@ -25,6 +25,7 @@ import { IconClose, IconShirt, IconSliders } from "~/pages/common/Icons";
 import { Rating } from "~/pages/common/Rating";
 import { Breadcrumb } from "~/pages/common/components/Breadcrumb";
 import { parseApiError } from "~/utils/api-error";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 
 import { formatPrice } from "~/utils/utils";
 
@@ -225,7 +226,7 @@ export function ProductListingItem(props: {
     >
       <div className="h-56 w-full">
         {props.imgUrl ? (
-          <img
+          <ImgWithLoader
             src={props.imgUrl}
             className="h-full w-full rounded-md object-cover"
           />

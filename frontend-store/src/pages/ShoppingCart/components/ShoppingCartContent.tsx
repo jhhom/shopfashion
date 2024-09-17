@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { MissingProductImage } from "~/pages/common/ErrorContents";
 import { IconClose } from "~/pages/common/Icons";
 import { QuantityInputSmall } from "~/pages/common/components/QuantityInput";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 
 import { clsx as cx } from "clsx";
 import { formatPrice } from "~/utils/utils";
@@ -211,7 +212,7 @@ function SimpleCartItem(props: SimpleCartItemProps) {
     <div className="flex border-b border-gray-300 pb-8 pt-8 last:border-b-0">
       <div className="h-32 w-32">
         {props.item.imgUrl ? (
-          <img
+          <ImgWithLoader
             className="h-full w-full rounded-md object-cover"
             src={props.item.imgUrl}
           />
@@ -293,7 +294,7 @@ function ConfigurableCartItem(props: ConfigurableCartItemProps) {
     <div className="flex border-b border-gray-300 pb-8 pt-8 last:border-b-0">
       <div className="h-32 w-32">
         {props.item.imgUrl ? (
-          <img
+          <ImgWithLoader
             className="h-full w-full rounded-md object-cover"
             src={props.item.imgUrl}
           />

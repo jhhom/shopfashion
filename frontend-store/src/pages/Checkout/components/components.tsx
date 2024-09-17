@@ -1,4 +1,5 @@
 import { clsx as cx } from "clsx";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 
 export function FormState2() {
   return (
@@ -161,7 +162,7 @@ export function OrderItem() {
   return (
     <div className="flex">
       <div className="h-20 w-20 rounded-md">
-        <img
+        <ImgWithLoader
           className="h-full w-full rounded-md object-cover"
           src="/cowboy-fashion.jpg"
         />

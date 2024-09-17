@@ -2,6 +2,7 @@ import { Rating } from "~/pages/common/Rating";
 import { clsx as cx } from "clsx";
 import { useParams } from "@tanstack/react-router";
 import { LoadingSpinner } from "~/pages/Checkout/components/LoadingSpinner";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 import {
   PageDoesNotExist,
   UnexpectedError,
@@ -40,7 +41,7 @@ export function ProductReviewsPage() {
         <div className="basis-64 pt-8">
           <div className="h-80 w-full md:h-64">
             {reviewsQuery.data.product.imageUrl ? (
-              <img
+              <ImgWithLoader
                 src={reviewsQuery.data.product.imageUrl}
                 alt=""
                 className="h-full w-full rounded-md object-cover"

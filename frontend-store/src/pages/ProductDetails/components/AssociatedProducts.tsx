@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 import { MissingProductImage } from "~/pages/common/ErrorContents";
 
 export function AssociatedProducts(props: {
@@ -32,7 +33,7 @@ export function AssociatedProducts(props: {
                   >
                     <div className="h-full w-full rounded-md">
                       {p.imgUrl ? (
-                        <img
+                        <ImgWithLoader
                           className="h-full w-full rounded-md object-cover"
                           src={p.imgUrl}
                         />
