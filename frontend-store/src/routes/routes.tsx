@@ -1,28 +1,20 @@
 import {
+  LazyRoute,
+  AnyRoute,
   createRootRoute,
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
 import { z } from "zod";
 
-import { useAppStore } from "~/stores/stores";
-import { HomePage } from "~/pages/Home/page";
+import { HomePage } from "~/routes/pages/Home/page";
 
-import { AppRootLayout } from "~/pages/layouts/ECommerce.layout";
+import { AppRootLayout } from "~/routes/pages/layouts/ECommerce.layout";
 
-import { ProductListingByTaxonPage } from "~/pages/ProductListingByTaxon/page";
-import { ProductDetailsPage } from "~/pages/ProductDetails/page";
-import { LoginPage } from "~/pages/Login/page";
-import { RegistrationPage } from "~/pages/Registration/page";
-import { ShoppingCartPage } from "~/pages/ShoppingCart/page";
-import { MembershipPage } from "~/pages/Membership/page";
-import { CheckoutPage } from "~/pages/Checkout/page";
-import { ThankYouPage } from "~/pages/ThankYou/page";
-import { ProfileSubpage } from "~/pages/Membership/Profile/page";
-import { PurchaseHistorySubpage } from "~/pages/Membership/PurchaseHistory/page";
-import { ProductReviewsPage } from "~/pages/ProductReviews/page";
-import { Page404Page, Page404WithLayoutPage } from "~/pages/Page404/page";
-import { SearchPage } from "~/pages/Search/page";
+import {
+  Page404Page,
+  Page404WithLayoutPage,
+} from "~/routes/pages/Page404/page";
 
 const rootRoute = createRootRoute({
   component: AppRootLayout,
@@ -39,6 +31,8 @@ const productDetailsSearchSchema = z.object({
   from_taxon: z.string().optional().catch(""),
 });
 
+type LazyLoadingRoute = Promise<LazyRoute<AnyRoute>>;
+
 type ProductListingFilter = z.infer<typeof productListingFilterSchema>;
 
 const routes = {
@@ -51,89 +45,88 @@ const routes = {
     productReviews: createRoute({
       getParentRoute: () => rootRoute,
       path: "/product/$productId/reviews",
-      component: ProductReviewsPage,
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/ProductReviews/page").then((d) => d.productReviewsRoute)
+    ),
     productDetails: createRoute({
       getParentRoute: () => rootRoute,
       path: "/product/$productId",
-      component: ProductDetailsPage,
       validateSearch: (search: Record<string, unknown>) => {
         return productDetailsSearchSchema.parse(search);
       },
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/ProductDetails/page").then((d) => d.productDetailsRoute)
+    ),
     productListingByTaxon: createRoute({
       getParentRoute: () => rootRoute,
       path: "/products/*",
-      component: ProductListingByTaxonPage,
       validateSearch: (
         search: Record<string, unknown>
       ): ProductListingFilter => {
         return productListingFilterSchema.parse(search);
       },
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/ProductListingByTaxon/page").then(
+          (d) => d.productListingByTaxonRoute
+        )
+    ),
     search: createRoute({
       getParentRoute: () => rootRoute,
       path: "/search",
-      component: SearchPage,
       validateSearch: (search: Record<string, unknown>): ProductSearch => {
         return productSearchSchema.parse(search);
       },
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/Search/page").then((d) => d.searchRoute)
+    ),
     shoppingCart: createRoute({
       getParentRoute: () => rootRoute,
       path: "/cart",
-      component: ShoppingCartPage,
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/ShoppingCart/page").then((d) => d.shoppingCartRoute)
+    ),
     membership: createRoute({
       getParentRoute: () => rootRoute,
       path: "/member",
-      component: MembershipPage,
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/Membership/page").then((d) => d.membershipRoute)
+    ),
     checkout: createRoute({
       getParentRoute: () => rootRoute,
       path: "/checkout",
-      component: CheckoutPage,
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/Checkout/page").then((d) => d.checkoutRoute)
+    ),
     thankyou: createRoute({
       getParentRoute: () => rootRoute,
       path: "/thank-you",
-      component: ThankYouPage,
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/ThankYou/page").then((d) => d.thankYouRoute)
+    ),
   },
   userLogin: {
     login: createRoute({
       getParentRoute: () => rootRoute,
       path: "/login",
-      component: LoginPage,
-      beforeLoad: async () => {
-        /*
-        const isAuthenticated = useAppStore.getState().authenticated;
-        // alert("IS AUTHENTICATED: " + isAuthenticated);
-        if (isAuthenticated) {
-          throw redirect({
-            to: "/member",
-          });
-        }
-        */
-      },
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/Login/page").then((d) => d.loginRoute)
+    ),
     register: createRoute({
       getParentRoute: () => rootRoute,
       path: "/register",
-      component: RegistrationPage,
-      beforeLoad: async () => {
-        /*
-        const isAuthenticated = useAppStore.getState().authenticated;
-        // alert("IS AUTHENTICATED: " + isAuthenticated);
-
-        if (isAuthenticated) {
-          throw redirect({
-            to: "/member",
-          });
-        }
-        */
-      },
-    }),
+    }).lazy(
+      (): LazyLoadingRoute =>
+        import("./pages/Registration/page").then((d) => d.registrationRoute)
+    ),
   },
 };
 
@@ -153,34 +146,30 @@ export const membershipSubroutes = {
   profile: createRoute({
     getParentRoute: () => routes.site.membership,
     path: "/",
-    component: ProfileSubpage,
-  }),
+  }).lazy(
+    (): LazyLoadingRoute =>
+      import("./pages/Membership/Profile/page").then((d) => d.profileRoute)
+  ),
   purchaseHistory: createRoute({
     getParentRoute: () => routes.site.membership,
     path: "/purchases",
-    component: PurchaseHistorySubpage,
     validateSearch: (
       search: Record<string, unknown>
     ): PurchaseHistoryFilter => {
       return purchaseHistoryFilterSchema.parse(search);
     },
-  }),
+  }).lazy(
+    (): LazyLoadingRoute =>
+      import("./pages/Membership/PurchaseHistory/page").then(
+        (d) => d.purchaseHistoryRoute
+      )
+  ),
 };
 
 export const catchAllRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "*",
   component: Page404Page,
-  beforeLoad: async () => {
-    const isAuthenticated = useAppStore.getState().authenticated;
-    /*
-    if (!isAuthenticated) {
-      throw redirect({
-        to: "/",
-      });
-    }
-    */
-  },
 });
 
 // Create the route tree using your routes
