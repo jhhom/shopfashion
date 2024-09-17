@@ -7,6 +7,7 @@ import { Link } from "@tanstack/react-router";
 import { IconMinus, IconPlus } from "~/pages/common/Icons";
 import { ProductListingItem } from "~/pages/ProductListingByTaxon/page";
 import { LoadingSpinner } from "~/pages/Checkout/components/LoadingSpinner";
+import { ImgWithLoader } from "~/pages/common/ImgWithLoader";
 
 export function HomePage() {
   const taxonTreeQuery = useQuery({
@@ -34,9 +35,24 @@ export function HomePage() {
   return (
     <div>
       <div className="overflow-hidden md:h-[calc(100vh-6rem)] md:px-6 md:py-6">
-        <p className="mt-8 text-center text-xl font-medium">
+        <div className="font-logo font-medium text-4xl text-gray-500 px-4 md:px-14 mt-14">
+          Shop for <span className="text-teal-600 underline">FASHION</span> that
+          elevates your <span className="text-teal-600 underline">PERFECT</span>{" "}
+          look, <br />
+          for every <span className="underline">moment</span> and every{" "}
+          <span className="underline">place</span>
+        </div>
+        <div className="h-[400px] relative w-screen md:-left-6 mt-8 right-0">
+          <ImgWithLoader
+            className=" outline-red-500 block mt-4 h-full w-full object-cover absolute"
+            src="/wallpaper.png"
+          />
+        </div>
+
+        <p className="mt-24 text-center text-xl font-medium">
           Browse our latest fashions
         </p>
+
         <div className="h-full w-full px-4 pb-12 sm:px-12 md:pb-0">
           <div className="mt-8 grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-12">
             {productListingQuery.data ? (
