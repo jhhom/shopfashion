@@ -38,20 +38,21 @@ const prices = [
   "RM 200+",
 ];
 
-export const productListingByTaxonRoute = createLazyRoute("/products/*")({
+export const productListingByTaxonRoute = createLazyRoute("/products/$")({
   component: ProductListingByTaxonPage,
 });
 
 function ProductListingByTaxonPage() {
-  const taxonSlug = (
-    useParams({ from: "/products/*" }) as {
-      "*": string;
-    }
-  )["*"];
+  const params = useParams({ from: "/products/$" }) as {
+    _splat?: string;
+    "*"?: string;
+  };
+
+  const taxonSlug = params._splat ?? params["*"] ?? "";
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const search = useSearch({ from: "/products/*" });
+  const search = useSearch({ from: "/products/$" });
   const searchSortPrice = search.sort_price ? search.sort_price : "asc";
 
   const navigate = useNavigate();

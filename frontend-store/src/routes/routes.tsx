@@ -61,7 +61,7 @@ const routes = {
     ),
     productListingByTaxon: createRoute({
       getParentRoute: () => rootRoute,
-      path: "/products/*",
+      path: "/products/$",
       validateSearch: (
         search: Record<string, unknown>
       ): ProductListingFilter => {
