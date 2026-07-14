@@ -39,13 +39,13 @@ It consists of two websites:
     </tr>
     <tr>
       <th>
-        <a style="text-align: center; font-weight: 700; display: block;" target="_blank" href="https://shopfashion.joohom.dev/">
-          🔗 shopfashion.joohom.dev
+        <a style="text-align: center; font-weight: 700; display: block;" target="_blank" href="https://shopfashion.coffeestack.dev/">
+          🔗 shopfashion.coffeestack.dev
         </a>
       </th>
       <th>
-        <a style="text-align: center; font-weight: 700; display: block;" target="_blank" href="https://shopfashion-admin.joohom.dev/">
-          🔗 shopfashion-admin.joohom.dev
+        <a style="text-align: center; font-weight: 700; display: block;" target="_blank" href="https://shopfashion-admin.coffeestack.dev/">
+          🔗 shopfashion-admin.coffeestack.dev
         </a>
       </th>
     </tr>
