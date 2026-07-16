@@ -9,10 +9,8 @@ import {
 } from "~/pages/Products/api";
 
 export function GenerateProductVariantsPage() {
-  const params = useParams({
-    from: "/products/$productId/variants/generate",
-  });
-  const productId = Number.parseInt(params.productId);
+  const params = useParams({ strict: false });
+  const productId = Number.parseInt(params.productId!);
   const navigate = useNavigate();
 
   const generateVariantsQuery = useGenerateVariants(productId);

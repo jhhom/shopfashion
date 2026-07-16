@@ -16,16 +16,14 @@ import {
 } from "~/pages/Products/api";
 
 export function EditProductPage() {
-  const productId = Number.parseInt(
-    useParams({ from: "/products/$productId/edit" }).productId
-  );
+  const productId = Number.parseInt(useParams({ strict: false }).productId!);
 
   const navigate = useNavigate();
 
   const editProductMutation = useEditProduct({
     productId,
     onSuccess: () => {
-      navigate({ to: "/products/" });
+      navigate({ to: "/products" });
     },
   });
 

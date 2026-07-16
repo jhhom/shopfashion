@@ -31,8 +31,8 @@ type FormSchema = z.infer<typeof formSchema>;
 export function CreateTaxonUnderParentPage() {
   const queryClient = useQueryClient();
 
-  const { taxonId } = useParams({ from: "/taxon/new/$taxonId" });
-  const initialParentId = Number.parseInt(taxonId);
+  const { taxonId } = useParams({ strict: false });
+  const initialParentId = Number.parseInt(taxonId!);
 
   const {
     register,

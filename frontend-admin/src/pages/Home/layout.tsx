@@ -19,7 +19,6 @@ import {
 } from "~/external/browser/use-local-storage-auth";
 import { useVerifyToken } from "~/pages/Home/api";
 import { useAfterVerifyTokenNavigation } from "~/providers/after-verify-token-navigation";
-import { DashboardPage } from "~/pages/Home/Dashboard/page";
 
 export function HomePage() {
   const [openSidebar, setOpenSidebar] = useState(true);
@@ -131,7 +130,7 @@ export function HomePage() {
           >
             <Breadcrumb />
             <div className="mt-4">
-              {pathname === "/" ? <DashboardPage /> : <Outlet />}
+              <Outlet />
             </div>
           </div>
         </div>

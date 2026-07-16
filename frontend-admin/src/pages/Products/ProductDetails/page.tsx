@@ -10,9 +10,7 @@ import {
 import { LoadingSpinnerOverlay } from "~/pages/common/components/LoadingSpinnerOverlay";
 
 export function ProductDetailsPage() {
-  const productId = Number.parseInt(
-    useParams({ from: "/products/$productId" }).productId
-  );
+  const productId = Number.parseInt(useParams({ strict: false }).productId!);
 
   const productDetailsQuery = useProductDetails(productId);
 

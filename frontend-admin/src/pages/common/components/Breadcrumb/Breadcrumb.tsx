@@ -1,4 +1,4 @@
-import { useRouter, RouterState, Link } from "@tanstack/react-router";
+import { useRouterState, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { client } from "~/external/api-client/client";
 import { generateBreadcrumbFromRoute } from "~/pages/common/components/Breadcrumb/breadcrumb-generator";
@@ -12,8 +12,6 @@ import {
 import { IconChevronRight } from "~/pages/common/Icons";
 
 export function Breadcrumb() {
-  const h = useRouter();
-
   const [breadcrumb, setBreadcrumb] = useState<
     | {
         title: string;
@@ -22,14 +20,21 @@ export function Breadcrumb() {
     | null
   >([]);
 
-  const matchedPath: RouterState["matches"][number] | null =
-    h.state.matches.length > 0
-      ? h.state.matches[h.state.matches.length - 1]
-      : null;
+  const matchedPath = useRouterState({
+    select: (state) =>
+      state.matches.length > 0
+        ? state.matches[state.matches.length - 1]
+        : null,
+  });
 
   useEffect(() => {
+    if (!matchedPath?.routeId) {
+      setBreadcrumb([]);
+      return;
+    }
+
     generateBreadcrumbFromRoute(
-      matchedPath?.routeId,
+      matchedPath.routeId,
       matchedPath?.params,
       getTitleOfParam,
       routeBreadcrumbModifiers
@@ -55,7 +60,6 @@ export function Breadcrumb() {
             <Link
               className="rounded-md px-1 py-1 hover:bg-gray-100"
               to={c.path as any}
-              params={{}}
             >
               {c.title}
             </Link>

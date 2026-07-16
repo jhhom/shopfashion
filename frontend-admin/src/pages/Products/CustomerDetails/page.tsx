@@ -32,7 +32,7 @@ const orders1: Order[] = [
 
 export function CustomerDetailsPage() {
   const customerId = Number.parseInt(
-    useParams({ from: "/customers/$customerId" }).customerId
+    useParams({ strict: false }).customerId!
   );
 
   const customerQuery = useCustomerDetails(customerId);

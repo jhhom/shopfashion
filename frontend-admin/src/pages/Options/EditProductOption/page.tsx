@@ -15,9 +15,7 @@ import {
 } from "~/pages/Options/api";
 
 export function EditProductOptionPage() {
-  const productOptionCode = useParams({
-    from: "/options/$optionCode/edit",
-  }).optionCode;
+  const productOptionCode = useParams({ strict: false }).optionCode!;
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();

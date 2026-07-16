@@ -97,7 +97,7 @@ async function generateBreadcrumb(
     _split.shift();
   }
 
-  if (_split.length > 0 && _split[0] === "home") {
+  if (_split.length > 0 && ["home", "_home"].includes(_split[0])) {
     crumbs.push({ title: "Administration", path: "/" });
     _split.shift();
   }

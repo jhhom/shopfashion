@@ -31,11 +31,9 @@ const formSchema = z.object({
 });
 
 export function EditProductVariantPage() {
-  const params = useParams({
-    from: "/products/$productId/variants/$productVariantId/edit",
-  });
-  const productVariantId = Number.parseInt(params.productVariantId);
-  const productId = Number.parseInt(params.productId);
+  const params = useParams({ strict: false });
+  const productVariantId = Number.parseInt(params.productVariantId!);
+  const productId = Number.parseInt(params.productId!);
 
   // map of: OPTION_CODE -> OPTION_VALUE_ID
   const [optionValues, setOptionValues] = useState<Map<string, number>>(
@@ -49,7 +47,7 @@ export function EditProductVariantPage() {
     onSuccess: () => {
       navigate({
         to: "/products/$productId/variants",
-        params: { productId: params.productId },
+        params: { productId: params.productId! },
       });
     },
   });

@@ -31,9 +31,7 @@ import {
 } from "~/pages/Products/api";
 
 export function ProductVariantListingPage() {
-  const productId = Number.parseInt(
-    useParams({ from: "/products/$productId/variants" }).productId
-  );
+  const productId = Number.parseInt(useParams({ strict: false }).productId!);
 
   const [searchVariantName, setSearchVariantName] = useState("");
 

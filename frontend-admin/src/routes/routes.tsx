@@ -38,6 +38,7 @@ import type { BreadcrumbModifier } from "~/pages/common/components/Breadcrumb/br
 import { ProductDetailsPage } from "~/pages/Products/ProductDetails/page";
 import { CustomerDetailsPage } from "~/pages/Products/CustomerDetails/page";
 import { LoginPage } from "~/pages/Login/page";
+import { DashboardPage } from "~/pages/Home/Dashboard/page";
 import {
   createRoute,
   createRootRoute,
@@ -66,40 +67,46 @@ export const loginRoute = createRoute({
   component: LoginPage,
 });
 
-export const indexRoute = createRoute({
+export const appRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/",
+  id: "_home",
   component: HomePage,
+});
+
+export const indexRoute = createRoute({
+  getParentRoute: () => appRoute,
+  path: "/",
+  component: DashboardPage,
 });
 
 export const routes = {
   taxon: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/taxon",
     component: TaxonsPage,
   }),
   products: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/products",
     component: ProductsPage,
   }),
   options: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/options",
     component: OptionsPage,
   }),
   orders: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/orders",
     component: OrdersPage,
   }),
   customers: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/customers",
     component: CustomersPage,
   }),
   productAssociations: createRoute({
-    getParentRoute: () => indexRoute,
+    getParentRoute: () => appRoute,
     path: "/product-associations",
     component: ProductAssociationsPage,
   }),
@@ -263,7 +270,8 @@ export const catchAllRoute = createRoute({
 // Create the route tree using your routes
 export const routeTree = rootRoute.addChildren([
   loginRoute,
-  indexRoute.addChildren([
+  appRoute.addChildren([
+    indexRoute,
     routes.products.addChildren([
       subRoutes.product.listing,
       subRoutes.product.listingByTaxon,

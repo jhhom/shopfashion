@@ -26,9 +26,7 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>;
 
 export function EditTaxonPage() {
-  const taxonId = Number.parseInt(
-    useParams({ from: "/taxon/$taxonId/edit" }).taxonId
-  );
+  const taxonId = Number.parseInt(useParams({ strict: false }).taxonId!);
 
   const {
     register,

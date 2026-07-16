@@ -22,9 +22,7 @@ import { useOrder, useUpdateShipmentStatus } from "~/pages/Orders/api";
 import { OrderLineItemStatus } from "~/api-contract/common";
 
 export function OrderDetailsPage() {
-  const orderId = Number.parseInt(
-    useParams({ from: "/orders/$orderId" }).orderId
-  );
+  const orderId = Number.parseInt(useParams({ strict: false }).orderId!);
 
   const [openEditDialog, setOpenEditDialog] = useState<{
     open: boolean;

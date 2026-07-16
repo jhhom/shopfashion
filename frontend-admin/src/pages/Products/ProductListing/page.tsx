@@ -36,9 +36,7 @@ export function ProductListingPage() {
 }
 
 export function ProductListingByTaxonPage() {
-  const taxonId = Number.parseInt(
-    useParams({ from: "/products/taxon/$taxonId" }).taxonId
-  );
+  const taxonId = Number.parseInt(useParams({ strict: false }).taxonId!);
 
   return <ProductListing taxonId={taxonId} />;
 }

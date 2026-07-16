@@ -27,6 +27,20 @@ describe("Function to generate breadcrumbs from path", () => {
           ["Edit", null],
         ],
       },
+        {
+          input: {
+            routeId: "/_home/options/$productId/edit",
+            params: {
+              productId: "1",
+            },
+          },
+          output: [
+            ["Administration", "/"],
+            ["Options", "/options"],
+            ["DRY Shirt", "/options/1"],
+            ["Edit", null],
+          ],
+        },
     ];
 
     for (const { input, output: expected } of testsets) {

@@ -29,7 +29,7 @@ const formSchema = z.object({
 
 export function CreateProductVariantPage() {
   const productId = Number.parseInt(
-    useParams({ from: "/products/$productId/variants/new" }).productId
+    useParams({ strict: false }).productId!
   );
 
   // map of: OPTION_CODE -> OPTION_VALUE_ID
@@ -52,7 +52,7 @@ export function CreateProductVariantPage() {
 
   const createProductVariantMutation = useCreateProductVariant({
     onSuccess: () => {
-      navigate({ to: "/products/" });
+      navigate({ to: "/products" });
     },
   });
 

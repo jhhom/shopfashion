@@ -20,9 +20,7 @@ export function EditProductAssociationPage() {
   const navigate = useNavigate();
 
   const associationTypeId = Number.parseInt(
-    useParams({
-      from: "/product-associations/$productAssociationTypeId/edit",
-    }).productAssociationTypeId
+    useParams({ strict: false }).productAssociationTypeId!
   );
 
   const editProductAssociationMutation = useEditAssociation({
