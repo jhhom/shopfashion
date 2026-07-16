@@ -109,19 +109,19 @@ export const subRoutes = {
   taxon: {
     edit: createRoute({
       getParentRoute: () => routes.taxon,
-      path: "$taxonId/edit",
+      path: "/$taxonId/edit",
       component: EditTaxonPage,
     }),
     new: createRoute({
       getParentRoute: () => routes.taxon,
-      path: "new",
+      path: "/new",
       component: CreateTaxon2Page,
       // Breadcrumbs
       //
     }),
     newUnderParent: createRoute({
       getParentRoute: () => routes.taxon,
-      path: "new/$taxonId",
+      path: "/new/$taxonId",
       component: CreateTaxonUnderParentPage,
     }),
   },
@@ -179,12 +179,12 @@ export const subRoutes = {
     /* PRODUCT VARIANT */
     variantListing: createRoute({
       getParentRoute: () => routes.products,
-      path: "$productId/variants",
+      path: "/$productId/variants",
       component: ProductVariantListingPage,
     }),
     newProductVariant: createRoute({
       getParentRoute: () => routes.products,
-      path: "$productId/variants/new",
+      path: "/$productId/variants/new",
       component: CreateProductVariantPage,
     }),
     editVariant: createRoute({
@@ -194,7 +194,7 @@ export const subRoutes = {
     }),
     generateProductVariant: createRoute({
       getParentRoute: () => routes.products,
-      path: "$productId/variants/generate",
+      path: "/$productId/variants/generate",
       component: GenerateProductVariantsPage,
     }),
   },
@@ -225,7 +225,7 @@ export const subRoutes = {
     }),
     order: createRoute({
       getParentRoute: () => routes.orders,
-      path: "$orderId",
+      path: "/$orderId",
       component: OrderDetailsPage,
     }),
   },
